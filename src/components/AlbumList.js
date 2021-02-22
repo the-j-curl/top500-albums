@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components/macro";
+
 import { AlbumCard } from "./AlbumCard";
 
 export const AlbumList = () => {
@@ -19,17 +21,45 @@ export const AlbumList = () => {
 
   return (
     <>
-      <h2>Album list</h2>
-      {albums.map(album => (
-        <AlbumCard
-          key={album.position}
-          position={album.position}
-          artist={album.artist}
-          albumName={album.albumName}
-          year={album.year}
-          review={album.critic}
-        />
-      ))}
+      <H2>Album list</H2>
+      <AlbumWrapper>
+        {albums.map(album => (
+          <AlbumCard
+            key={album.position}
+            position={album.position}
+            artist={album.artist}
+            albumName={album.albumName}
+            year={album.year}
+            critic={album.critic}
+          />
+        ))}
+      </AlbumWrapper>
     </>
   );
 };
+
+const H2 = styled.h2`
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+
+  @media (min-width: 768px) {
+    font-size: 26px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 30px;
+  }
+`;
+
+const AlbumWrapper = styled.main`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+`;
