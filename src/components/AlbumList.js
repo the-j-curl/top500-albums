@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 
+import { SearchBar } from "./SearchBar";
 import { AlbumCard } from "./AlbumCard";
 
 export const AlbumList = () => {
@@ -22,6 +23,7 @@ export const AlbumList = () => {
   return (
     <>
       <H2>Album list</H2>
+      <SearchBar />
       <AlbumWrapper>
         {albums.map(album => (
           <AlbumCard
