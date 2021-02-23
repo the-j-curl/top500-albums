@@ -3,9 +3,11 @@ import styled from "styled-components/macro";
 
 import { SearchBar } from "./SearchBar";
 import { AlbumCard } from "./AlbumCard";
+import { AlbumDetails } from "./AlbumDetails";
 
 export const AlbumList = () => {
   const [albums, setAlbums] = useState([]);
+  const [input, setInput] = useState("");
   const ALBUMS_URL = `https://jamie-albums-api.herokuapp.com/albums`;
 
   useEffect(() => {
@@ -23,18 +25,31 @@ export const AlbumList = () => {
   return (
     <>
       <H2>Album list</H2>
-      <SearchBar />
+      <SearchBar
+        value={input}
+        onChange={event => setInput(event.target.value)}
+      />
       <AlbumWrapper>
-        {albums.map(album => (
-          <AlbumCard
-            key={album.position}
-            position={album.position}
-            artist={album.artist}
-            albumName={album.albumName}
-            year={album.year}
-            critic={album.critic}
-          />
-        ))}
+        {albums
+          .filter(album => {
+            if (input === "") {
+              return album;
+            } else {
+              return album.albumName
+                .toLowerCase()
+                .includes(input.toLowerCase());
+            }
+          })
+          .map(album => (
+            <AlbumCard
+              key={album.position}
+              position={album.position}
+              artist={album.artist}
+              albumName={album.albumName}
+              year={album.year}
+              critic={album.critic}
+            />
+          ))}
       </AlbumWrapper>
     </>
   );

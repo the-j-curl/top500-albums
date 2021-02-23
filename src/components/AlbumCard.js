@@ -10,7 +10,7 @@ export const AlbumCard = ({ position, artist, albumName, year, critic }) => {
 
   return (
     <Album>
-      <p>Position: {position}</p>
+      <p>No: {position}</p>
       <p>
         <BoldText>{albumName}</BoldText> by {artist}
       </p>
@@ -26,11 +26,11 @@ export const AlbumCard = ({ position, artist, albumName, year, critic }) => {
 };
 
 const Album = styled.article`
-  border: 1px solid white;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.2);
   padding: 5px;
   width: 95%;
   font-size: 15px;
-  background: rgba(22, 21, 21, 0.7);
+  background: rgba(22, 21, 21, 0.5);
   color: #fff;
 
   @media (min-width: 768px) {
@@ -53,7 +53,7 @@ const ItalicText = styled.span`
 
 const ShowMoreButton = styled.button`
   background: #fff;
-  color: red;
+  color: #d32531;
   border: none;
   border-radius: 10px;
   padding: 2px 6px;

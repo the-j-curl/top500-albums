@@ -14,10 +14,14 @@ export const Header = () => {
 const HeaderContainer = styled.header`
   height: 100px;
   width: 100%;
-  background: red;
+  background: #d32531;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 1024px) {
+    height: 110px;
+  }
 
   @media (min-width: 1024px) {
     height: 120px;
