@@ -3,19 +3,24 @@ import styled from "styled-components/macro";
 
 import { SearchBar } from "./SearchBar";
 import { AlbumCard } from "./AlbumCard";
+import { Loader } from "./Loader";
 import { AlbumDetails } from "./AlbumDetails";
 
 export const AlbumList = () => {
   const [albums, setAlbums] = useState([]);
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const ALBUMS_URL = `https://jamie-albums-api.herokuapp.com/albums`;
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(ALBUMS_URL)
       .then(res => res.json())
       .then(json => {
         setAlbums(json.results);
         console.log(albums.length);
+        setIsLoading(false);
       });
     // eslint-disable-next-line
   }, [ALBUMS_URL]);
@@ -29,28 +34,32 @@ export const AlbumList = () => {
         value={input}
         onChange={event => setInput(event.target.value)}
       />
-      <AlbumWrapper>
-        {albums
-          .filter(album => {
-            if (input === "") {
-              return album;
-            } else {
-              return album.albumName
-                .toLowerCase()
-                .includes(input.toLowerCase());
-            }
-          })
-          .map(album => (
-            <AlbumCard
-              key={album.position}
-              position={album.position}
-              artist={album.artist}
-              albumName={album.albumName}
-              year={album.year}
-              critic={album.critic}
-            />
-          ))}
-      </AlbumWrapper>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <AlbumWrapper>
+          {albums
+            .filter(album => {
+              if (input === "") {
+                return album;
+              } else {
+                return album.albumName
+                  .toLowerCase()
+                  .includes(input.toLowerCase());
+              }
+            })
+            .map(album => (
+              <AlbumCard
+                key={album.position}
+                position={album.position}
+                artist={album.artist}
+                albumName={album.albumName}
+                year={album.year}
+                critic={album.critic}
+              />
+            ))}
+        </AlbumWrapper>
+      )}
     </>
   );
 };
