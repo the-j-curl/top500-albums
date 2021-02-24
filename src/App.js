@@ -5,7 +5,6 @@ import { Header } from "./components/Header";
 import { Home } from "./pages/Home";
 import { AlbumDetails } from "./pages/AlbumDetails";
 import { NotFound } from "./pages/NotFound";
-import { Footer } from "./components/Footer";
 
 export const App = () => {
   return (
