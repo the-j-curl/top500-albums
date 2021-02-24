@@ -1,19 +1,17 @@
-# Technigo React Starter App
+# Rolling Stone Magazine's Top 500 Albums App 💿
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
+This is a side project created using an [API](https://jamie-albums-api.herokuapp.com/) that I created as part of the Technigo boot-camp. The repository can be viewed on my [GitHub](https://github.com/the-j-curl/project-mongo-api).
+The aim was to have fun building a frontend application which displays the Top 500 Albums using my own API data from a previous project. I have included a search field which uses the filter method to return an album(s), and a page with extra details on.
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
+## Tech
 
-## Usage
+- React Router
+- useHistory hook
+- useParams hook
+- JSX
+- API
+- Styled Components
 
-1. On GitHub, click the 'use this template' button to create a new repo on your account
-1. Clone the new repo to your computer
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+## View it live
 
-Alternatively, if you don't want a new git repo on your account;
-
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+https://rolling-stone-top500.netlify.app/
