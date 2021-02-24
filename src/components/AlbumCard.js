@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 
 export const AlbumCard = ({ position, artist, albumName, year, critic }) => {
   const [showMore, setShowMore] = useState(false);
 
-  const handleOnClick = () => {
-    setShowMore(!showMore);
-  };
+  // const handleOnClick = () => {
+  //   setShowMore(!showMore);
+  // };
 
   return (
     <Album>
@@ -20,7 +21,10 @@ export const AlbumCard = ({ position, artist, albumName, year, critic }) => {
           <ItalicText>{critic}</ItalicText>
         </p>
       )}
-      <ShowMoreButton onClick={() => handleOnClick()}>Show more</ShowMoreButton>
+      {/* <ShowMoreButton onClick={() => handleOnClick()}>Show more</ShowMoreButton> */}
+      <Link to={`/albums/${position}`}>
+        <ShowMoreButton>Show more</ShowMoreButton>
+      </Link>
     </Album>
   );
 };
@@ -43,7 +47,7 @@ const Album = styled.article`
   }
 `;
 
-const BoldText = styled.span`
+export const BoldText = styled.span`
   font-weight: 700;
 `;
 

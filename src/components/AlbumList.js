@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import { SearchBar } from "./SearchBar";
 import { AlbumCard } from "./AlbumCard";
 import { Loader } from "./Loader";
-import { AlbumDetails } from "./AlbumDetails";
+import { AlbumDetails } from "../pages/AlbumDetails";
 
 export const AlbumList = () => {
   const [albums, setAlbums] = useState([]);
