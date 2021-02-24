@@ -41,7 +41,7 @@ export const AlbumDetails = () => {
                 <BoldText>{album.albumName}</BoldText> by {album.artist}
               </p>
               <p>Released: {album.year}</p>
-              <p>{album.critic}</p>
+              <ItalicText>{album.critic}</ItalicText>
             </AlbumTextWrapper>
           ))}
         </AlbumDetailsContainer>
@@ -65,12 +65,14 @@ const AlbumTextWrapper = styled.div`
   background: rgba(22, 21, 21, 0.9);
 
   @media (min-width: 768px) {
-    /* padding: 20px 30px; */
     width: 70%;
   }
 
   @media (min-width: 1024px) {
-    /* padding: 20px 100px; */
     width: 50%;
   }
+`;
+
+const ItalicText = styled.span`
+  font-style: italic;
 `;
