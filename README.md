@@ -14,6 +14,6 @@ The aim was to have fun building a frontend application which displays the 
 
 ## View it live
 
-https://rolling-stone-top500.netlify.app/
+Frontend: https://rolling-stone-top500.netlify.app/
 
 View the backend: https://github.com/the-j-curl/project-mongo-api
